@@ -13,10 +13,10 @@
     <div class="form-group">
         <input type="text" class="form-control" id="codiceFiscale" name="codiceFiscale" placeholder="Cerca per codice fiscale">
     </div>
-    <button type="submit" class="btn btn-primary mt-2">Cerca</button>
+    <button type="submit" class="btn btn-primary mt-2 mb-2">Cerca</button>
 </form>
 <form asp-controller="Prenotaziones" asp-action="TotalPensioneCompleta" method="get">
-    <input class="" type="submit" value="Mostra totali per pensione completa" />
+    <input class="mb-2" type="submit" value="Mostra totali per pensione completa" />
 </form>
 <table class="table bg-gradient">
     <thead>
@@ -83,9 +83,10 @@
             </td>
             <td>
                     <a asp-action="Edit" class="btn btn-primary bg-gradient" asp-route-id="@item.ID">Modifica</a>
-                    <a asp-action="Create" class="btn btn-warning bg-gradient" asp-controller="Servizis">Servizi</a>
-                    <a asp-action="Delete" class="btn btn-danger bg-gradient" asp-route-id="@item.ID">Elimina</a>
-                    <a asp-action="Checkout" asp-route-id="@item.ID" class="btn btn-dark bg-gradient">Checkout</a>
+                    <a asp-action="Create" class="btn btn-warning bg-gradient" asp-controller="Servizis">Servizi</a> 
+                    <br />
+                    <a asp-action="Delete" class="btn btn-danger bg-gradient mt-2" asp-route-id="@item.ID">Elimina</a>
+                    <a asp-action="Checkout" asp-route-id="@item.ID" class="btn btn-dark bg-gradient mt-2">Checkout</a>
                  
             </td>
         </tr>

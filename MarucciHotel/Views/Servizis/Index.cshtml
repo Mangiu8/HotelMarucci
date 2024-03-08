@@ -4,12 +4,12 @@
     ViewData["Title"] = "Index";
 }
 
-<h1 class="text-white">Servizi</h1>
+<h1>Servizi</h1>
 
 <p>
     <a class="btn btn-primary" asp-action="Create">Aggiungi Servizio</a>
 </p>
-<table class="table bg-gradient">
+<table class ="table bg-gradient">
     <thead>
         <tr class="text-warning">
             <th>
@@ -29,7 +29,7 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr class="text-white">
+            <tr class="text-white">
             <td>
                 @Html.DisplayFor(modelItem => item.Descrizione)
             </td>
@@ -43,9 +43,8 @@
                 @Html.DisplayFor(modelItem => item.Prenotazione.ID)
             </td>
             <td>
-                    <a asp-action="Edit" class="btn btn-primary bg-gradient" asp-route-id="@item.ID">Modifica</a>
-
-                    <a asp-action="Delete" class="btn btn-danger bg-gradient" asp-route-id="@item.ID">Elimina</a>
+                <a class="btn btn-warning bg-gradient" asp-action="Edit" asp-route-id="@item.ID">Modifica</a> 
+                    <a class="btn btn-danger bg-gradient" asp-action="Delete" asp-route-id="@item.ID">Elimina</a>
             </td>
         </tr>
 }

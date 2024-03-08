@@ -1,18 +1,23 @@
 ﻿@model MarucciHotel.Models.CheckoutView
 
-@{
-    <h1>Dettaglio della prenotazione</h1>
+<div class="card">
+    <div class="card-body">
+        <h1 class="card-title">Dettaglio della prenotazione</h1>
+        <p class="card-text">Cliente: @Model.Prenotazione.Cliente.Nome @Model.Prenotazione.Cliente.Cognome</p>
+        <p class="card-text">Codice Fiscale: @Model.Prenotazione.Cliente.Cod_Fisc</p>
+        <p class="card-text">Numero di stanza: @Model.Prenotazione.Camera.ID</p>
+        <p class="card-text">Descrizione Camera: @Model.Prenotazione.Camera.Descrizione</p>
+        <p class="card-text">Periodo: @Model.Prenotazione.DataInizioSoggiorno - @Model.Prenotazione.DataFineSoggiorno</p>
 
-    <p>Numero di stanza: @Model.Prenotazione.Camera.ID @Model.Prenotazione.Camera.Descrizione</p>
-    <p>Periodo: @Model.Prenotazione.DataInizioSoggiorno - @Model.Prenotazione.DataFineSoggiorno</p>
-
-    <h2>Servizi aggiuntivi</h2>
-    <ul>
-        @foreach (var servizio in Model.Servizi)
-        {
-            <li> @servizio.Descrizione: @servizio.Prezzo €</li>
-        }
-    </ul>
-    <p>Tariffa applicata: @Model.Prenotazione.Prezzo</p>
-    <p>Importo da saldare: @(Model.Prenotazione.Prezzo - Model.Prenotazione.Acconto + Model.Servizi.Sum(s => s.Prezzo))</p>
-}
+        <h2 class="card-subtitle">Servizi aggiuntivi</h2>
+        <ul class="list-group">
+            @foreach (var servizio in Model.Servizi)
+            {
+                <li class="list-group-item"> @servizio.Descrizione: @servizio.Prezzo €</li>
+            }
+        </ul>
+        <p class="card-text mt-2">Tariffa applicata: @Model.Prenotazione.Prezzo €</p>
+        <p class="card-text ">Importo da saldare: @(Model.Prenotazione.Prezzo - Model.Prenotazione.Acconto + Model.Servizi.Sum(s => s.Prezzo)) €</p>
+        <a asp-action="Index" class="btn btn-primary bg-gradient mt-2">Stampa Checkout</a>
+    </div>
+</div>

@@ -4,9 +4,8 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Aggiungi Servizio</h1>
 
-<h4>Servizi</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -14,12 +13,12 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Descrizione" class="control-label"></label>
-                <select asp-for="Descrizione" asp-items="Html.GetEnumSelectList<Descrizione>()" class="form-control" onchange="updatePrezzo(this.value)"></select>
+                <select asp-for="Descrizione" asp-items="Html.GetEnumSelectList<Descrizione>()" class="form-control"></select>
                 <span asp-validation-for="Descrizione" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Prezzo" class="control-label"></label>
-                <input asp-for="Prezzo" class="form-control" id="prezzoInput" />
+                <input asp-for="Prezzo" class="form-control" />
                 <span asp-validation-for="Prezzo" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -29,53 +28,16 @@
             </div>
             <div class="form-group">
                 <label asp-for="IDPrenotazione" class="control-label"></label>
-                <select asp-for="IDPrenotazione" class="form-control" asp-items="ViewBag.IDPrenotazione"></select>
+                <select asp-for="IDPrenotazione" class ="form-control" asp-items="ViewBag.IDPrenotazione"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Crea" class="btn btn-primary mt-2 bg-gradient" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-success mt-2 bg-gradient" asp-action="Index">Torna indietro</a>
 </div>
 
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-    <script>
-        function updatePrezzo(descrizione) {
-            var prezzoInput = document.getElementById("prezzoInput");
-            switch (descrizione) {
-                case "Pulizia":
-                    prezzoInput.value = 10;
-                    break;
-                case "Cambio biancheria":
-                    prezzoInput.value = 20;
-                    break;
-                case "Cambio asciugamani":
-                    prezzoInput.value = 30;
-                    break;
-                case "Internet":
-                    prezzoInput.value = 40;
-                    break;
-                case "Compagnia":
-                    prezzoInput.value = 80;
-                    break;
-                case "Colazione in Camera":
-                    prezzoInput.value = 60;
-                    break;
-                case "Massaggio Hot":
-                    prezzoInput.value = 100;
-                    break;
-                default:
-                    prezzoInput.value = "";
-                    break;
-            }
-        }
-    </script>
-    </section>
-}

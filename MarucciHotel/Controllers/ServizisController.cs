@@ -1,8 +1,12 @@
-﻿using MarucciHotel.Data;
-using MarucciHotel.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using MarucciHotel.Data;
+using MarucciHotel.Models;
 
 namespace MarucciHotel.Controllers
 {
@@ -40,13 +44,17 @@ namespace MarucciHotel.Controllers
 
             return View(servizi);
         }
-        public IActionResult Create(int id)
+
+        // GET: Servizis/Create
+        public IActionResult Create()
         {
-            ViewBag.IDPrenotazione = id;
             ViewData["IDPrenotazione"] = new SelectList(_context.Prenotazione, "ID", "ID");
             return View();
         }
 
+        // POST: Servizis/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,Descrizione,Prezzo,DataRichiestaServizio,IDPrenotazione")] Servizi servizi)
@@ -78,6 +86,9 @@ namespace MarucciHotel.Controllers
             return View(servizi);
         }
 
+        // POST: Servizis/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,Descrizione,Prezzo,DataRichiestaServizio,IDPrenotazione")] Servizi servizi)
