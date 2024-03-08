@@ -1,0 +1,77 @@
+﻿@model IEnumerable<MarucciHotel.Models.Prenotazione>
+
+@{
+    ViewData["Title"] = "SearchByCodiceFiscale";
+}
+
+<h1>SearchByCodiceFiscale</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DataPrenotazione)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataInizioSoggiorno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataFineSoggiorno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Anno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Acconto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prezzo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Camera)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pensione)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataPrenotazione)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataInizioSoggiorno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataFineSoggiorno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Anno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Acconto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prezzo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.Cellulare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Camera.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pensione.Tipologia)
+            </td>
+           
+        </tr>
+}
+    </tbody>
+</table>

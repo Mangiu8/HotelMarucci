@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MarucciHotel.Models.Servizi>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-white">Servizi</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Aggiungi Servizio</a>
+</p>
+<table class="table bg-gradient">
+    <thead>
+        <tr class="text-warning">
+            <th>
+                @Html.DisplayNameFor(model => model.Descrizione)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prezzo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataRichiestaServizio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prenotazione)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr class="text-white">
+            <td>
+                @Html.DisplayFor(modelItem => item.Descrizione)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prezzo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataRichiestaServizio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenotazione.ID)
+            </td>
+            <td>
+                    <a asp-action="Edit" class="btn btn-primary bg-gradient" asp-route-id="@item.ID">Modifica</a>
+
+                    <a asp-action="Delete" class="btn btn-danger bg-gradient" asp-route-id="@item.ID">Elimina</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

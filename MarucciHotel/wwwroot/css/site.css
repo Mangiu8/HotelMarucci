@@ -1,0 +1,44 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #555c64 !important;
+}
+.bg-img{
+  background-image: url("../img/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.my-nav {
+    background: linear-gradient(90deg, #9d00ff 0%, #4d00ff 48%, #321ceb 70%, #b2f2ff);
+    width: 100%;
+    z-index: 2;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    
